@@ -12,6 +12,7 @@ struct ApiKey {
 }
 
 struct Helper {
+    
     static func unixTodateConverter(withUnix unix: Double,needFormat format: DateFormats) -> String{
         //Mon or Monday
         // Hour

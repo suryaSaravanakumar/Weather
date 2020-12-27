@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,6 +48,7 @@
 		D81EDE682598D1AE00462152 /* CitySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDE672598D1AE00462152 /* CitySearchViewModel.swift */; };
 		D81EDE6D2598D1F300462152 /* CitySearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDE6C2598D1F300462152 /* CitySearchModel.swift */; };
 		D81EDE7F2598D94F00462152 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDE7E2598D94F00462152 /* Protocols.swift */; };
+		D81EDE8F2599050A00462152 /* DataBaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDE8E2599050900462152 /* DataBaseHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		D81EDE672598D1AE00462152 /* CitySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchViewModel.swift; sourceTree = "<group>"; };
 		D81EDE6C2598D1F300462152 /* CitySearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchModel.swift; sourceTree = "<group>"; };
 		D81EDE7E2598D94F00462152 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		D81EDE8E2599050900462152 /* DataBaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 		D81EDD762598723800462152 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				D81EDE8D259904DE00462152 /* DataBase Helper */,
 				D81EDD432598718000462152 /* Weather.xcdatamodeld */,
 			);
 			path = DataBase;
@@ -544,6 +547,14 @@
 			path = "CityName Cell";
 			sourceTree = "<group>";
 		};
+		D81EDE8D259904DE00462152 /* DataBase Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D81EDE8E2599050900462152 /* DataBaseHelper.swift */,
+			);
+			path = "DataBase Helper";
+			sourceTree = "<group>";
+		};
 		DE42E96F1B8F67032A6BE25F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -810,6 +821,7 @@
 				D81EDE622598CD3B00462152 /* CityNameTableViewCell.swift in Sources */,
 				D81EDD452598718000462152 /* Weather.xcdatamodeld in Sources */,
 				D81EDE5A2598CC9200462152 /* CitySearchViewController.swift in Sources */,
+				D81EDE8F2599050A00462152 /* DataBaseHelper.swift in Sources */,
 				D81EDE162598A05200462152 /* Ext_WeatherDetailsVC+CollectionView.swift in Sources */,
 				D81EDD3F2598717F00462152 /* WeatherDetailsViewController.swift in Sources */,
 				D81EDDF9259898C500462152 /* Enums.swift in Sources */,

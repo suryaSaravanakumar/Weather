@@ -14,10 +14,9 @@ class CitiesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Property Declaration
-    var currentWeather: Current?
     var currentCityData: OneWeatherModel?
-    var selectedCitiesDict = [[String:String]]()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var selectedCities = [City]()
+    var cityChangeDelegate: CitySelectDelegate!
     
     
     // MARK: - View LifeCycle
@@ -28,6 +27,7 @@ class CitiesViewController: UIViewController {
     
     // MARK: - Custom Methods
     private func initalSetup(){
+        selectedCities = DataBaseHelper.loadCityDataFromDB()
         tableViewSetup()
     }
     
@@ -44,22 +44,15 @@ class CitiesViewController: UIViewController {
         let weatherDetailsViewModel = WeatherDetailsViewModel()
         weatherDetailsViewModel.didReceiveOneWeatherAPISuccess = { [weak self](oneWeatherResponse) in
             self?.currentCityData = oneWeatherResponse
-            if let cityData = self?.currentCityData{
-                var citye:[String:String] = [:]
-                citye["cityName"] = cityName
-                citye["cityTemp"] = "\(cityData.current?.temp ?? 0)"
-                citye["cityWeather"] = cityData.current?.weather?[0].main ?? ""
-                self?.selectedCitiesDict.append(citye)
-                
-                //coreData
-                let cityyData = City(context: self!.context)
-                cityyData.cityName = cityName
-                cityyData.cityLat = lat
-                cityyData.cityLong = long
-                cityyData.cityTemp = "\(cityData.current?.temp ?? 0)"
-                cityyData.cityWeather = cityData.current?.weather?[0].main ?? ""
-                self?.saveCoreDataContext()
-                
+            if let city = self?.currentCityData{
+                let cityData = City(context: DataBaseHelper.context)
+                cityData.cityName = cityName
+                cityData.cityLat = lat
+                cityData.cityLong = long
+                cityData.cityTemp = "\(city.current?.temp ?? 0)"
+                cityData.cityWeather = city.current?.weather?[0].main ?? ""
+                DataBaseHelper.saveCoreDataContext()
+                self?.selectedCities = DataBaseHelper.loadCityDataFromDB()
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -73,13 +66,6 @@ class CitiesViewController: UIViewController {
         weatherDetailsViewModel.invokeOneWeatherAPIWith(lat: lat, long: long)
     }
     
-    private func saveCoreDataContext(){
-        do{
-            try context.save()
-        } catch {
-            print("error saving coredata: \(error)")
-        }
-    }
     
     @IBAction func addCityBtnTapped(_ sender: UIButton) {
         guard let citySearchVC = UIStoryboard(name: "Cities", bundle: nil).instantiateViewController(identifier: "CitySearchViewController") as? CitySearchViewController else {return}
@@ -92,7 +78,7 @@ class CitiesViewController: UIViewController {
 
 extension CitiesViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectedCitiesDict.count
+        return selectedCities.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 140 }
@@ -102,18 +88,22 @@ extension CitiesViewController: UITableViewDelegate,UITableViewDataSource{
             return UITableViewCell()
         }
         
-        if let currentCity = selectedCitiesDict[indexPath.row]["cityName"],
-           let cityweather = selectedCitiesDict[indexPath.row]["cityWeather"],
-           let cityTemp = selectedCitiesDict[indexPath.row]["cityTemp"]{
-            cell.weatherTypeLbl.text = cityweather
-            cell.cityLbl.text = currentCity
-            cell.tempLbl.text = "\(cityTemp)° C"
-        }
+        cell.weatherTypeLbl.text = selectedCities[indexPath.row].cityWeather
+        cell.cityLbl.text = selectedCities[indexPath.row].cityName
+        cell.tempLbl.text = "\(selectedCities[indexPath.row].cityTemp ?? "")° C"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        if let cityLat = selectedCities[indexPath.row].cityLat,
+           let cityLong = selectedCities[indexPath.row].cityLong {
+            cityChangeDelegate.didSelectCity(cityName: selectedCities[indexPath.row].cityName ?? "" ,
+                                             lat: cityLat,
+                                             long: cityLong )
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+        
     }
 }
 

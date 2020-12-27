@@ -11,7 +11,3 @@ import Foundation
 protocol CitySelectDelegate {
     func didSelectCity(cityName: String,lat: String,long: String)
 }
-
-protocol didChangeCityDelegate {
-    func didChangeCity(weatherDetails: OneWeatherModel)
-}
