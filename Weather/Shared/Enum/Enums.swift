@@ -9,7 +9,5 @@ import Foundation
 
 enum DateFormats: String{
     case day = "E"
-    case time12Hrs = "s"
-    
-    
+    case time12Hrs = "hh:mm a"
 }

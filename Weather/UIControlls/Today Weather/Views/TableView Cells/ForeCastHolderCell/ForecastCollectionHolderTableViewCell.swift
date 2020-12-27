@@ -10,18 +10,18 @@ import UIKit
 
 class ForecastCollectionHolderTableViewCell: UITableViewCell {
 
+    //MARK: - IBOutlet Declaration
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        collectionView.reloadData()
     }
 
-    static var cellIdentifier = "ForecastCollectionHolderTableViewCell"
-    
+    //MARK: - Type Methods
+    static let cellIdentifier = "ForecastCollectionHolderTableViewCell"
     static func nib() -> UINib{
          UINib(nibName: "ForecastCollectionHolderTableViewCell", bundle: nil)
     }
     
-
 }

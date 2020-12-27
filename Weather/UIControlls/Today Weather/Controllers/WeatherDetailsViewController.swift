@@ -19,7 +19,7 @@ class WeatherDetailsViewController: UIViewController {
     var dailyWeather: [Daily]?
     
     //MARK: - Instance Declaration
-//    let viewModel = WeatherDetailsViewModel()
+    //    let viewModel = WeatherDetailsViewModel()
     var viewModel: WeatherDetailsViewModel = {
         return WeatherDetailsViewModel()
     }()
@@ -74,7 +74,7 @@ class WeatherDetailsViewController: UIViewController {
 
 extension WeatherDetailsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -103,21 +103,24 @@ extension WeatherDetailsViewController: UITableViewDelegate, UITableViewDataSour
         case 1:
             guard let otherWeatherDetailCell = tableView.dequeueReusableCell(withIdentifier: otherWeatherDetailsTableViewCell.cellIdentifier, for: indexPath) as? otherWeatherDetailsTableViewCell else {
                 return UITableViewCell()}
-//            if let weather = todayWeather{
-//                otherWeatherDetailCell.updateCell(withWeatherData: weather, currentRow: indexPath.row)
-//            }
+            if let weather = todayWeather{
+                otherWeatherDetailCell.updateCell(withTodayWeather: weather)
+            }
             return otherWeatherDetailCell
-//        case 2:
-//            guard let forecastCollectionCell = tableView.dequeueReusableCell(withIdentifier: ForecastCollectionHolderTableViewCell.cellIdentifier, for: indexPath) as? ForecastCollectionHolderTableViewCell else {
-//                return UITableViewCell()}
-//            forecastCollectionCell.collectionView.delegate = self
-//            forecastCollectionCell.collectionView.dataSource = self
-//            forecastCollectionCell.collectionView.register(ForecastCollectionViewCell.nib(), forCellWithReuseIdentifier: ForecastCollectionViewCell.cellIdentifier)
-//            return forecastCollectionCell
+        case 2:
+            guard let forecastCollectionCell = tableView.dequeueReusableCell(withIdentifier: ForecastCollectionHolderTableViewCell.cellIdentifier, for: indexPath) as? ForecastCollectionHolderTableViewCell else {
+                return UITableViewCell()}
+            if let _ = self.hourlyWeather {
+                forecastCollectionCell.collectionView.register(ForecastCollectionViewCell.nib(), forCellWithReuseIdentifier: ForecastCollectionViewCell.cellIdentifier)
+                forecastCollectionCell.collectionView.delegate = self
+                forecastCollectionCell.collectionView.dataSource = self
+            }
+            return forecastCollectionCell
+            
         default:
             return UITableViewCell()
         }
         
-       
+        
     }
 }

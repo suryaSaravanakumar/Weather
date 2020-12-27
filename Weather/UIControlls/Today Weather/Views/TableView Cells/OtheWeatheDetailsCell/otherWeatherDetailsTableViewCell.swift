@@ -31,7 +31,18 @@ class otherWeatherDetailsTableViewCell: UITableViewCell {
         detailsContainerView.layer.cornerRadius = 4
         detailsContainerView.layer.masksToBounds = false
     }
+    
+    //MARK: - Custom Methods
+    func updateCell(withTodayWeather weather: Current){
+        feelsLikeLbl.text = "\(weather.feelsLike ?? 0)°"
+        humidityLbl.text = "\(weather.humidity ?? 0)%"
+        windLbl.text = "\(weather.humidity ?? 0) mPs"
+        uvIndexLbl.text = "\(weather.uvi ?? 0)"
+        pressureLbl.text = "\(weather.pressure ?? 0) hPa"
+        
+        let visibilityInKM = weather.visibility ?? 0 / 1000
+        visibilityLbl.text = "\(visibilityInKM) Km"
+    }
 
-   
     
 }

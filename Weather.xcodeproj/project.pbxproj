@@ -29,8 +29,15 @@
 		D81EDDD6259887EA00462152 /* otherWeatherDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81EDDD4259887EA00462152 /* otherWeatherDetailsTableViewCell.xib */; };
 		D81EDDDC259887F500462152 /* ForecastCollectionHolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81EDDDA259887F500462152 /* ForecastCollectionHolderTableViewCell.xib */; };
 		D81EDDDD259887F500462152 /* ForecastCollectionHolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDDDB259887F500462152 /* ForecastCollectionHolderTableViewCell.swift */; };
-		D81EDDF22598984900462152 /* String+GetDesiredDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDDF12598984800462152 /* String+GetDesiredDate.swift */; };
 		D81EDDF9259898C500462152 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDDF8259898C500462152 /* Enums.swift */; };
+		D81EDE0225989BFC00462152 /* ForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDDFE25989BFB00462152 /* ForecastCollectionViewCell.swift */; };
+		D81EDE0425989BFC00462152 /* ForecastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81EDE0025989BFC00462152 /* ForecastCollectionViewCell.xib */; };
+		D81EDE0E25989DB300462152 /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDE0D25989DB300462152 /* UIView+CornerRadius.swift */; };
+		D81EDE162598A05200462152 /* Ext_WeatherDetailsVC+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDE152598A05200462152 /* Ext_WeatherDetailsVC+CollectionView.swift */; };
+		D81EDE212598B84500462152 /* DailyForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDE202598B84400462152 /* DailyForecastViewController.swift */; };
+		D81EDE2C2598B86000462152 /* DailyForecast.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81EDE2B2598B86000462152 /* DailyForecast.storyboard */; };
+		D81EDE332598B9D800462152 /* DailyForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDE312598B9D800462152 /* DailyForecastTableViewCell.swift */; };
+		D81EDE342598B9D800462152 /* DailyForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81EDE322598B9D800462152 /* DailyForecastTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,8 +92,15 @@
 		D81EDDD4259887EA00462152 /* otherWeatherDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otherWeatherDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		D81EDDDA259887F500462152 /* ForecastCollectionHolderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastCollectionHolderTableViewCell.xib; sourceTree = "<group>"; };
 		D81EDDDB259887F500462152 /* ForecastCollectionHolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastCollectionHolderTableViewCell.swift; sourceTree = "<group>"; };
-		D81EDDF12598984800462152 /* String+GetDesiredDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GetDesiredDate.swift"; sourceTree = "<group>"; };
 		D81EDDF8259898C500462152 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		D81EDDFE25989BFB00462152 /* ForecastCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastCollectionViewCell.swift; sourceTree = "<group>"; };
+		D81EDE0025989BFC00462152 /* ForecastCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastCollectionViewCell.xib; sourceTree = "<group>"; };
+		D81EDE0D25989DB300462152 /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
+		D81EDE152598A05200462152 /* Ext_WeatherDetailsVC+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext_WeatherDetailsVC+CollectionView.swift"; sourceTree = "<group>"; };
+		D81EDE202598B84400462152 /* DailyForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastViewController.swift; sourceTree = "<group>"; };
+		D81EDE2B2598B86000462152 /* DailyForecast.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DailyForecast.storyboard; sourceTree = "<group>"; };
+		D81EDE312598B9D800462152 /* DailyForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastTableViewCell.swift; sourceTree = "<group>"; };
+		D81EDE322598B9D800462152 /* DailyForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyForecastTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				D81EDD8A2598732A00462152 /* Today Weather */,
+				D81EDE1A2598B7D100462152 /* Daily Forecast */,
 			);
 			path = UIControlls;
 			sourceTree = "<group>";
@@ -244,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				D81EDD3E2598717F00462152 /* WeatherDetailsViewController.swift */,
+				D81EDE152598A05200462152 /* Ext_WeatherDetailsVC+CollectionView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -300,7 +316,7 @@
 		D81EDDB8259883E000462152 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D81EDDF12598984800462152 /* String+GetDesiredDate.swift */,
+				D81EDE0D25989DB300462152 /* UIView+CornerRadius.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -318,6 +334,7 @@
 		D81EDDC82598874D00462152 /* CollectionView Cells */ = {
 			isa = PBXGroup;
 			children = (
+				D81EDE0925989C1A00462152 /* HourForecast Cell */,
 			);
 			path = "CollectionView Cells";
 			sourceTree = "<group>";
@@ -355,6 +372,74 @@
 				D81EDDF8259898C500462152 /* Enums.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		D81EDE0925989C1A00462152 /* HourForecast Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D81EDDFE25989BFB00462152 /* ForecastCollectionViewCell.swift */,
+				D81EDE0025989BFC00462152 /* ForecastCollectionViewCell.xib */,
+			);
+			path = "HourForecast Cell";
+			sourceTree = "<group>";
+		};
+		D81EDE1A2598B7D100462152 /* Daily Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				D81EDE1F2598B81500462152 /* Models */,
+				D81EDE1E2598B81100462152 /* View */,
+				D81EDE1D2598B80B00462152 /* ViewModels */,
+				D81EDE1B2598B7EB00462152 /* Controllers */,
+				D81EDE1C2598B7FF00462152 /* Board */,
+			);
+			path = "Daily Forecast";
+			sourceTree = "<group>";
+		};
+		D81EDE1B2598B7EB00462152 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D81EDE202598B84400462152 /* DailyForecastViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D81EDE1C2598B7FF00462152 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				D81EDE2B2598B86000462152 /* DailyForecast.storyboard */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		D81EDE1D2598B80B00462152 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D81EDE1E2598B81100462152 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D81EDE302598B9BC00462152 /* TableCells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D81EDE1F2598B81500462152 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D81EDE302598B9BC00462152 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				D81EDE312598B9D800462152 /* DailyForecastTableViewCell.swift */,
+				D81EDE322598B9D800462152 /* DailyForecastTableViewCell.xib */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 		DE42E96F1B8F67032A6BE25F /* Frameworks */ = {
@@ -475,8 +560,11 @@
 			files = (
 				D81EDD4A2598718A00462152 /* LaunchScreen.storyboard in Resources */,
 				D81EDD472598718A00462152 /* Assets.xcassets in Resources */,
+				D81EDE2C2598B86000462152 /* DailyForecast.storyboard in Resources */,
 				D81EDDD6259887EA00462152 /* otherWeatherDetailsTableViewCell.xib in Resources */,
 				D81EDD422598718000462152 /* WeatherDetails.storyboard in Resources */,
+				D81EDE342598B9D800462152 /* DailyForecastTableViewCell.xib in Resources */,
+				D81EDE0425989BFC00462152 /* ForecastCollectionViewCell.xib in Resources */,
 				D81EDDDC259887F500462152 /* ForecastCollectionHolderTableViewCell.xib in Resources */,
 				D81EDDCF259887D800462152 /* TodayWeatherDetailsTableViewCell.xib in Resources */,
 			);
@@ -574,12 +662,16 @@
 			files = (
 				D81EDD92259874F800462152 /* Network Helper.swift in Sources */,
 				D81EDDA42598768100462152 /* Constant.swift in Sources */,
+				D81EDE332598B9D800462152 /* DailyForecastTableViewCell.swift in Sources */,
 				D81EDDB42598799F00462152 /* WeatherDetailsViewModel.swift in Sources */,
 				D81EDDDD259887F500462152 /* ForecastCollectionHolderTableViewCell.swift in Sources */,
 				D81EDD452598718000462152 /* Weather.xcdatamodeld in Sources */,
+				D81EDE162598A05200462152 /* Ext_WeatherDetailsVC+CollectionView.swift in Sources */,
 				D81EDD3F2598717F00462152 /* WeatherDetailsViewController.swift in Sources */,
-				D81EDDF22598984900462152 /* String+GetDesiredDate.swift in Sources */,
 				D81EDDF9259898C500462152 /* Enums.swift in Sources */,
+				D81EDE212598B84500462152 /* DailyForecastViewController.swift in Sources */,
+				D81EDE0225989BFC00462152 /* ForecastCollectionViewCell.swift in Sources */,
+				D81EDE0E25989DB300462152 /* UIView+CornerRadius.swift in Sources */,
 				D81EDDCE259887D800462152 /* TodayWeatherDetailsTableViewCell.swift in Sources */,
 				D81EDDAF259878C400462152 /* OneWeatherModel.swift in Sources */,
 				D81EDD3B2598717F00462152 /* AppDelegate.swift in Sources */,

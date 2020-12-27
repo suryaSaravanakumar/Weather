@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Daily Forecast View Controller-->
+        <scene sceneID="hAr-Je-Z18">
+            <objects>
+                <viewController storyboardIdentifier="DailyForecastViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UF2-92-fc6" customClass="DailyForecastViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ysC-qv-Rh8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UjD-vp-QlI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily ForeCast for 7 days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbK-Kg-LNf">
+                                        <rect key="frame" x="106" y="50" width="202" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.25707757469999998" green="0.54035979509999998" blue="0.42433685059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dZk-rj-dMU">
+                                        <rect key="frame" x="1" y="91" width="413" height="805"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="CbK-Kg-LNf" firstAttribute="top" secondItem="UjD-vp-QlI" secondAttribute="top" constant="50" id="5Vo-nX-Mj6"/>
+                                    <constraint firstItem="dZk-rj-dMU" firstAttribute="top" secondItem="CbK-Kg-LNf" secondAttribute="bottom" constant="20" id="8Fo-Eo-aTU"/>
+                                    <constraint firstAttribute="bottom" secondItem="dZk-rj-dMU" secondAttribute="bottom" id="cMe-ya-nKQ"/>
+                                    <constraint firstItem="dZk-rj-dMU" firstAttribute="leading" secondItem="UjD-vp-QlI" secondAttribute="leading" constant="1" id="hR0-Xc-3E3"/>
+                                    <constraint firstAttribute="trailing" secondItem="dZk-rj-dMU" secondAttribute="trailing" id="mIE-DT-6Z8"/>
+                                    <constraint firstItem="CbK-Kg-LNf" firstAttribute="centerX" secondItem="UjD-vp-QlI" secondAttribute="centerX" id="vrx-6S-nCW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ydi-Ub-cZt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="UjD-vp-QlI" secondAttribute="bottom" id="4Ls-4n-EIv"/>
+                            <constraint firstItem="UjD-vp-QlI" firstAttribute="trailing" secondItem="ydi-Ub-cZt" secondAttribute="trailing" id="6s4-bi-73L"/>
+                            <constraint firstItem="UjD-vp-QlI" firstAttribute="top" secondItem="ysC-qv-Rh8" secondAttribute="top" id="LGQ-nA-kEg"/>
+                            <constraint firstItem="UjD-vp-QlI" firstAttribute="leading" secondItem="ydi-Ub-cZt" secondAttribute="leading" id="Wdm-fu-eIl"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1YA-Xq-3yE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="105.79710144927537" y="126.5625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
