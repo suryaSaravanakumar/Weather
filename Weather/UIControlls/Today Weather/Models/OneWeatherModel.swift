@@ -43,7 +43,7 @@ struct Current : Codable {
     let weather : [Weather]?
     let windDeg : Int?
     let windSpeed : Float?
-    let rain : Rain?
+//    let rain : Rain?
 
     enum CodingKeys: String, CodingKey {
         case clouds = "clouds"
@@ -60,7 +60,7 @@ struct Current : Codable {
         case weather = "weather"
         case windDeg = "wind_deg"
         case windSpeed = "wind_speed"
-        case rain = "rain"
+//        case rain = "rain"
     }
 }
 

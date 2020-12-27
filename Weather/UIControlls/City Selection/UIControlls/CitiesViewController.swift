@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CitiesViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class CitiesViewController: UIViewController {
     var currentWeather: Current?
     var currentCityData: OneWeatherModel?
     var selectedCitiesDict = [[String:String]]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     // MARK: - View LifeCycle
@@ -43,11 +45,20 @@ class CitiesViewController: UIViewController {
         weatherDetailsViewModel.didReceiveOneWeatherAPISuccess = { [weak self](oneWeatherResponse) in
             self?.currentCityData = oneWeatherResponse
             if let cityData = self?.currentCityData{
-                var city:[String:String] = [:]
-                city["cityName"] = cityName
-                city["cityTemp"] = "\(cityData.current?.temp ?? 0)"
-                city["cityWeather"] = cityData.current?.weather?[0].main ?? ""
-                self?.selectedCitiesDict.append(city)
+                var citye:[String:String] = [:]
+                citye["cityName"] = cityName
+                citye["cityTemp"] = "\(cityData.current?.temp ?? 0)"
+                citye["cityWeather"] = cityData.current?.weather?[0].main ?? ""
+                self?.selectedCitiesDict.append(citye)
+                
+                //coreData
+                let cityyData = City(context: self!.context)
+                cityyData.cityName = cityName
+                cityyData.cityLat = lat
+                cityyData.cityLong = long
+                cityyData.cityTemp = "\(cityData.current?.temp ?? 0)"
+                cityyData.cityWeather = cityData.current?.weather?[0].main ?? ""
+                self?.saveCoreDataContext()
                 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
@@ -60,6 +71,14 @@ class CitiesViewController: UIViewController {
         }
         
         weatherDetailsViewModel.invokeOneWeatherAPIWith(lat: lat, long: long)
+    }
+    
+    private func saveCoreDataContext(){
+        do{
+            try context.save()
+        } catch {
+            print("error saving coredata: \(error)")
+        }
     }
     
     @IBAction func addCityBtnTapped(_ sender: UIButton) {

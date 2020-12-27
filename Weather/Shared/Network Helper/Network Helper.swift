@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Disk
 
 class NetwokHelper{
     static let sharedInstance = NetwokHelper()
@@ -30,14 +31,34 @@ class NetwokHelper{
         let task = session.dataTask(with: url, completionHandler: { data, response, error in
             
             if error != nil {
+                do {
+                    let json = try Disk.retrieve(endPoint, from: .caches, as: T.self)
+                    completion(json)
+                }catch{
+                    failureBlock(error)
+                }
                 failureBlock(error!)
                 return
             }
             do {
                 let json = try JSONDecoder().decode(type.self, from: data! )
+                
+                do{
+                    try Disk.save(json, to: .caches, as: endPoint)
+                    print("Saved data for offline")
+                }catch{
+                    print("Not able to store data for offline")
+                }
+                
                 completion(json)
             } catch {
                 print("Error during JSON serialization: \(error.localizedDescription)")
+                do {
+                    let json = try Disk.retrieve(endPoint, from: .caches, as: T.self)
+                    completion(json)
+                }catch{
+                    failureBlock(error)
+                }
             }
         })
         task.resume()

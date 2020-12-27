@@ -6,7 +6,8 @@ target 'Weather' do
   use_frameworks!
 
   # Pods for Weather
-
+  pod 'Disk'
+  
   target 'WeatherTests' do
     inherit! :search_paths
     # Pods for testing
