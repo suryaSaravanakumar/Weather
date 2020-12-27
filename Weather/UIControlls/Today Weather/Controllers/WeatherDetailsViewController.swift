@@ -39,8 +39,11 @@ class WeatherDetailsViewController: UIViewController {
     private func tableViewSetup(){
         weatherTableView.delegate = self
         weatherTableView.dataSource = self
+        weatherTableView.separatorStyle = .none
         weatherTableView.tableFooterView = UIView()
-        
+        weatherTableView.register(TodayWeatherDetailsTableViewCell.nib(), forCellReuseIdentifier: TodayWeatherDetailsTableViewCell.cellIdentifier)
+        weatherTableView.register(ForecastCollectionHolderTableViewCell.nib(), forCellReuseIdentifier: ForecastCollectionHolderTableViewCell.cellIdentifier)
+        weatherTableView.register(otherWeatherDetailsTableViewCell.nib(), forCellReuseIdentifier: otherWeatherDetailsTableViewCell.cellIdentifier)
     }
     
     private func callOneWeatherAPI(){
@@ -49,7 +52,9 @@ class WeatherDetailsViewController: UIViewController {
             self?.todayWeather = oneWeatherResponse.current
             self?.hourlyWeather = oneWeatherResponse.hourly
             self?.dailyWeather = oneWeatherResponse.daily
-            print("API Sucess")
+            DispatchQueue.main.async {
+                self?.weatherTableView.reloadData()
+            }
         }
         
         viewModel.didReceiveOneWeatherAPIFailure = { (error,statusCode) in
@@ -69,11 +74,50 @@ class WeatherDetailsViewController: UIViewController {
 
 extension WeatherDetailsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        3
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 270
+        case 1:
+            return 250
+        case 2:
+            return 170
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        switch indexPath.row {
+        case 0:
+            guard let todayWeatherCell = tableView.dequeueReusableCell(withIdentifier: TodayWeatherDetailsTableViewCell.cellIdentifier, for: indexPath) as? TodayWeatherDetailsTableViewCell else {
+                return UITableViewCell()}
+            if let weather = todayWeather{
+                todayWeatherCell.updateCell(withTodayWeather: weather)
+            }
+            return todayWeatherCell
+        case 1:
+            guard let otherWeatherDetailCell = tableView.dequeueReusableCell(withIdentifier: otherWeatherDetailsTableViewCell.cellIdentifier, for: indexPath) as? otherWeatherDetailsTableViewCell else {
+                return UITableViewCell()}
+//            if let weather = todayWeather{
+//                otherWeatherDetailCell.updateCell(withWeatherData: weather, currentRow: indexPath.row)
+//            }
+            return otherWeatherDetailCell
+//        case 2:
+//            guard let forecastCollectionCell = tableView.dequeueReusableCell(withIdentifier: ForecastCollectionHolderTableViewCell.cellIdentifier, for: indexPath) as? ForecastCollectionHolderTableViewCell else {
+//                return UITableViewCell()}
+//            forecastCollectionCell.collectionView.delegate = self
+//            forecastCollectionCell.collectionView.dataSource = self
+//            forecastCollectionCell.collectionView.register(ForecastCollectionViewCell.nib(), forCellWithReuseIdentifier: ForecastCollectionViewCell.cellIdentifier)
+//            return forecastCollectionCell
+        default:
+            return UITableViewCell()
+        }
+        
+       
     }
-    
 }
