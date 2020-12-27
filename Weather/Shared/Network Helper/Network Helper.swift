@@ -20,20 +20,21 @@ class NetwokHelper{
         - T  - Codeable Model (Pass your model here) to get the response from the API
      - Parameter failureBlock: Failure block with error
      */
-    func callGetAPIWith<T: Codable>(endPoint:String,
+    func callGetAPIWith<T: Codable>(with endPoint:String,
+                                    responseType type: T.Type,
                                        completion: @escaping (T) -> (),
-                                       failureBlock:@escaping (String) ->()){
+                                       failureBlock:@escaping (Error) ->()){
         guard  let url = URL(string: endPoint) else { return  }
         
         //FIXME: - Handle No Internet case
         let task = session.dataTask(with: url, completionHandler: { data, response, error in
             
             if error != nil {
-                failureBlock(error.debugDescription)
+                failureBlock(error!)
                 return
             }
             do {
-                let json = try JSONDecoder().decode(T.self, from: data! )
+                let json = try JSONDecoder().decode(type.self, from: data! )
                 completion(json)
             } catch {
                 print("Error during JSON serialization: \(error.localizedDescription)")

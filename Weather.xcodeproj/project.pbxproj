@@ -21,6 +21,8 @@
 		D81EDD602598718B00462152 /* WeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDD5F2598718B00462152 /* WeatherUITests.swift */; };
 		D81EDD92259874F800462152 /* Network Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDD91259874F800462152 /* Network Helper.swift */; };
 		D81EDDA42598768100462152 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDDA32598768100462152 /* Constant.swift */; };
+		D81EDDAF259878C400462152 /* OneWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDDAE259878C400462152 /* OneWeatherModel.swift */; };
+		D81EDDB42598799F00462152 /* WeatherDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81EDDB32598799F00462152 /* WeatherDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		D81EDD612598718B00462152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D81EDD91259874F800462152 /* Network Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Helper.swift"; sourceTree = "<group>"; };
 		D81EDDA32598768100462152 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		D81EDDAE259878C400462152 /* OneWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneWeatherModel.swift; sourceTree = "<group>"; };
+		D81EDDB32598799F00462152 /* WeatherDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +233,7 @@
 		D81EDD8C2598734000462152 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				D81EDDB32598799F00462152 /* WeatherDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 		D81EDD8E2598734F00462152 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D81EDDAE259878C400462152 /* OneWeatherModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -485,8 +491,10 @@
 			files = (
 				D81EDD92259874F800462152 /* Network Helper.swift in Sources */,
 				D81EDDA42598768100462152 /* Constant.swift in Sources */,
+				D81EDDB42598799F00462152 /* WeatherDetailsViewModel.swift in Sources */,
 				D81EDD452598718000462152 /* Weather.xcdatamodeld in Sources */,
 				D81EDD3F2598717F00462152 /* WeatherDetailsViewController.swift in Sources */,
+				D81EDDAF259878C400462152 /* OneWeatherModel.swift in Sources */,
 				D81EDD3B2598717F00462152 /* AppDelegate.swift in Sources */,
 				D81EDD3D2598717F00462152 /* SceneDelegate.swift in Sources */,
 			);
