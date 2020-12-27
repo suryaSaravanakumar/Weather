@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,16 +16,81 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CKn-9x-Zd8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clear" translatesAutoresizingMaskIntoConstraints="NO" id="uWJ-0X-2yJ" userLabel="Clear">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    </imageView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hZ3-Y6-z8M">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="826"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmG-GP-6gt">
+                                        <rect key="frame" x="0.0" y="826" width="414" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGm-4c-O9P">
+                                                <rect key="frame" x="182" y="10" width="50" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="building.2.crop.circle" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addCityBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xdT-09-CxU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="IGm-4c-O9P" firstAttribute="width" secondItem="lmG-GP-6gt" secondAttribute="width" multiplier="0.120773" id="NcA-1F-p8j"/>
+                                            <constraint firstAttribute="height" constant="70" id="fqQ-Jc-hTz"/>
+                                            <constraint firstItem="IGm-4c-O9P" firstAttribute="centerY" secondItem="lmG-GP-6gt" secondAttribute="centerY" id="oSS-Pw-egg"/>
+                                            <constraint firstItem="IGm-4c-O9P" firstAttribute="height" secondItem="lmG-GP-6gt" secondAttribute="height" multiplier="0.714286" id="rgG-fP-Qyr"/>
+                                            <constraint firstItem="IGm-4c-O9P" firstAttribute="centerX" secondItem="lmG-GP-6gt" secondAttribute="centerX" id="zY2-KW-aYO"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="uWJ-0X-2yJ" firstAttribute="top" secondItem="CKn-9x-Zd8" secondAttribute="top" id="3Dw-NB-9zl"/>
+                                    <constraint firstItem="lmG-GP-6gt" firstAttribute="top" secondItem="hZ3-Y6-z8M" secondAttribute="bottom" id="9L7-hJ-Q47"/>
+                                    <constraint firstAttribute="trailing" secondItem="hZ3-Y6-z8M" secondAttribute="trailing" id="Ikf-Dl-jHz"/>
+                                    <constraint firstItem="hZ3-Y6-z8M" firstAttribute="top" secondItem="CKn-9x-Zd8" secondAttribute="top" id="QNi-dY-dUa"/>
+                                    <constraint firstItem="lmG-GP-6gt" firstAttribute="top" secondItem="hZ3-Y6-z8M" secondAttribute="bottom" id="UI3-iw-96i"/>
+                                    <constraint firstItem="lmG-GP-6gt" firstAttribute="leading" secondItem="CKn-9x-Zd8" secondAttribute="leading" id="WEl-vQ-0FT"/>
+                                    <constraint firstAttribute="bottom" secondItem="uWJ-0X-2yJ" secondAttribute="bottom" id="lEE-dU-vEz"/>
+                                    <constraint firstItem="uWJ-0X-2yJ" firstAttribute="leading" secondItem="CKn-9x-Zd8" secondAttribute="leading" id="pkZ-iV-Fc7"/>
+                                    <constraint firstAttribute="trailing" secondItem="lmG-GP-6gt" secondAttribute="trailing" id="qEv-a1-3cp"/>
+                                    <constraint firstAttribute="bottom" secondItem="lmG-GP-6gt" secondAttribute="bottom" id="rCQ-D5-eWl"/>
+                                    <constraint firstAttribute="trailing" secondItem="uWJ-0X-2yJ" secondAttribute="trailing" id="sPQ-j0-n9a"/>
+                                    <constraint firstItem="hZ3-Y6-z8M" firstAttribute="leading" secondItem="CKn-9x-Zd8" secondAttribute="leading" id="ybl-xa-hVq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CKn-9x-Zd8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="DdZ-l5-wwG"/>
+                            <constraint firstItem="CKn-9x-Zd8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="IbK-DR-xuD"/>
+                            <constraint firstAttribute="bottom" secondItem="CKn-9x-Zd8" secondAttribute="bottom" id="XLu-Fz-Rix"/>
+                            <constraint firstItem="CKn-9x-Zd8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hS5-9d-XPS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addCityBtn" destination="IGm-4c-O9P" id="hLX-zh-QRO"/>
+                        <outlet property="weatherTableView" destination="hZ3-Y6-z8M" id="Fpi-Wd-m3S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="83" y="79"/>
+            <point key="canvasLocation" x="82.608695652173921" y="78.348214285714278"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Clear" width="1024" height="1366"/>
+        <image name="building.2.crop.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -10,14 +10,19 @@ import UIKit
 class WeatherDetailsViewController: UIViewController {
     
     //MARK: - IBOulet Declaration
+    @IBOutlet weak var weatherTableView: UITableView!
+    @IBOutlet weak var addCityBtn: UIButton!
     
     //MARK: - Property Declaration
-    var viewModel: WeatherDetailsViewModel = {
-        return WeatherDetailsViewModel()
-    }()
     var todayWeather: Current?
     var hourlyWeather: [Hourly]?
     var dailyWeather: [Daily]?
+    
+    //MARK: - Instance Declaration
+//    let viewModel = WeatherDetailsViewModel()
+    var viewModel: WeatherDetailsViewModel = {
+        return WeatherDetailsViewModel()
+    }()
     
     //MARK: - View LifeCycle
     override func viewDidLoad() {
@@ -28,13 +33,18 @@ class WeatherDetailsViewController: UIViewController {
     //MARK: - Custom Methods
     private func initalSetup(){
         callOneWeatherAPI()
+        tableViewSetup()
     }
     
     private func tableViewSetup(){
+        weatherTableView.delegate = self
+        weatherTableView.dataSource = self
+        weatherTableView.tableFooterView = UIView()
         
     }
     
     private func callOneWeatherAPI(){
+        
         viewModel.didReceiveOneWeatherAPISuccess = { [weak self](oneWeatherResponse) in
             self?.todayWeather = oneWeatherResponse.current
             self?.hourlyWeather = oneWeatherResponse.hourly
@@ -50,7 +60,20 @@ class WeatherDetailsViewController: UIViewController {
     }
     
     //MARK: - IBAction Methods
+    @IBAction func addCityBtnTapped(_ sender: UIButton) {
+    }
     
     
 }
 
+
+extension WeatherDetailsViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+}

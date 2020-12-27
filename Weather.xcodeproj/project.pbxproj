@@ -181,6 +181,7 @@
 			children = (
 				D81EDDA22598766F00462152 /* Constant */,
 				D81EDD90259874D500462152 /* Network Helper */,
+				D81EDDB8259883E000462152 /* Extensions */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -275,6 +276,13 @@
 				D81EDDA32598768100462152 /* Constant.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		D81EDDB8259883E000462152 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DE42E96F1B8F67032A6BE25F /* Frameworks */ = {
