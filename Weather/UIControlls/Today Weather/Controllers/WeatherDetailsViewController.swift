@@ -66,8 +66,19 @@ class WeatherDetailsViewController: UIViewController {
     
     //MARK: - IBAction Methods
     @IBAction func addCityBtnTapped(_ sender: UIButton) {
+        guard let vc = UIStoryboard(name: "Cities", bundle: nil).instantiateViewController(identifier: "CitiesViewController") as? CitiesViewController else {return}
+        //            vc.dailyForecast = dailyWeatherDetails
+        self.present(vc, animated: true, completion: nil)
+        
     }
     
+    @IBAction func viewForecastBtnTapped(_ sender: UIButton) {
+        if let dailyWeatherDetails = self.dailyWeather{
+            guard let vc = UIStoryboard(name: "DailyForecast", bundle: nil).instantiateViewController(identifier: "DailyForecastViewController") as? DailyForecastViewController else {return}
+            vc.dailyForecast = dailyWeatherDetails
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
     
 }
 

@@ -4,21 +4,20 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="400" id="KGk-i7-Jjw" customClass="DailyForecastTableViewCell" customModule="Weather" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="310" height="333"/>
+            <rect key="frame" x="0.0" y="0.0" width="323" height="330"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="310" height="333"/>
+                <rect key="frame" x="0.0" y="0.0" width="323" height="330"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKt-kb-SuE">
-                        <rect key="frame" x="5" y="10" width="300" height="313"/>
+                        <rect key="frame" x="10" y="10" width="303" height="310"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-7S-QJi">
                                 <rect key="frame" x="10" y="10" width="82" height="30"/>
@@ -32,8 +31,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-rC-MCd">
-                                <rect key="frame" x="224.5" y="10" width="70" height="70"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.drizzle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-rC-MCd">
+                                <rect key="frame" x="213" y="10" width="70" height="71.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="ObY-hi-Xg0"/>
                                     <constraint firstAttribute="height" constant="70" id="dO8-YA-rar"/>
@@ -46,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vXF-7q-7nL">
-                                <rect key="frame" x="5.5" y="90" width="289" height="40"/>
+                                <rect key="frame" x="10" y="90" width="289" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MkM-PS-YMk">
                                         <rect key="frame" x="0.0" y="0.0" width="139.5" height="40"/>
@@ -162,11 +162,11 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="0.51627079133064513" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bpT-7S-QJi" firstAttribute="top" secondItem="RKt-kb-SuE" secondAttribute="top" constant="10" id="1Ks-B4-U8h"/>
                             <constraint firstItem="2ty-uO-RrS" firstAttribute="leading" secondItem="RKt-kb-SuE" secondAttribute="leading" constant="10" id="2Uu-mA-5VQ"/>
-                            <constraint firstItem="vXF-7q-7nL" firstAttribute="centerX" secondItem="RKt-kb-SuE" secondAttribute="centerX" id="3sl-lW-XgT"/>
+                            <constraint firstAttribute="trailing" secondItem="4gF-rC-MCd" secondAttribute="trailing" constant="20" id="8eE-70-ZeS"/>
                             <constraint firstItem="xOy-ul-ey4" firstAttribute="top" secondItem="bpT-7S-QJi" secondAttribute="bottom" constant="10" id="AKD-AT-hxB"/>
                             <constraint firstItem="Uao-EZ-mpz" firstAttribute="top" secondItem="2ty-uO-RrS" secondAttribute="bottom" constant="10" id="Gfc-x3-pO6"/>
                             <constraint firstItem="2ty-uO-RrS" firstAttribute="top" secondItem="vXF-7q-7nL" secondAttribute="bottom" constant="5" id="MJ8-L6-CtL"/>
@@ -174,17 +174,17 @@
                             <constraint firstItem="4gF-rC-MCd" firstAttribute="top" secondItem="bpT-7S-QJi" secondAttribute="top" id="eb7-Fq-YJK"/>
                             <constraint firstItem="xOy-ul-ey4" firstAttribute="leading" secondItem="bpT-7S-QJi" secondAttribute="leading" id="gNf-Oo-D3d"/>
                             <constraint firstItem="vXF-7q-7nL" firstAttribute="top" secondItem="4gF-rC-MCd" secondAttribute="bottom" constant="10" id="hN7-ib-WPd"/>
+                            <constraint firstItem="vXF-7q-7nL" firstAttribute="leading" secondItem="xOy-ul-ey4" secondAttribute="leading" id="maP-Ly-Xe3"/>
                             <constraint firstItem="Uao-EZ-mpz" firstAttribute="leading" secondItem="2ty-uO-RrS" secondAttribute="leading" id="t5W-jg-3bx"/>
-                            <constraint firstItem="4gF-rC-MCd" firstAttribute="trailing" secondItem="vXF-7q-7nL" secondAttribute="trailing" id="unh-hm-If8"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="RKt-kb-SuE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="GNS-vl-ddz"/>
-                    <constraint firstAttribute="trailing" secondItem="RKt-kb-SuE" secondAttribute="trailing" constant="5" id="jsA-kI-dhH"/>
+                    <constraint firstAttribute="trailing" secondItem="RKt-kb-SuE" secondAttribute="trailing" constant="10" id="jsA-kI-dhH"/>
                     <constraint firstAttribute="bottom" secondItem="RKt-kb-SuE" secondAttribute="bottom" constant="10" id="lrs-97-5Zn"/>
-                    <constraint firstItem="RKt-kb-SuE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="zCe-K5-yYR"/>
+                    <constraint firstItem="RKt-kb-SuE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="zCe-K5-yYR"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -201,14 +201,12 @@
                 <outlet property="weatherImage" destination="4gF-rC-MCd" id="nrd-wg-1UX"/>
                 <outlet property="weatherTypeLbl" destination="xOy-ul-ey4" id="7gX-JG-WYG"/>
             </connections>
-            <point key="canvasLocation" x="113.04347826086958" y="227.34375"/>
+            <point key="canvasLocation" x="122.46376811594205" y="227.00892857142856"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="cloud.drizzle.fill" catalog="system" width="128" height="125"/>
         <image name="sunrise.fill" catalog="system" width="128" height="97"/>
         <image name="sunset.fill" catalog="system" width="128" height="97"/>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
