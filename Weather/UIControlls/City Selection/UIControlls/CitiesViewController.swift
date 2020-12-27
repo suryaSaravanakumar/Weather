@@ -12,6 +12,8 @@ class CitiesViewController: UIViewController {
     
     // MARK: - IBOutlet Declaration
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loaderContainerView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Property Declaration
     var currentCityData: OneWeatherModel?
@@ -43,6 +45,11 @@ class CitiesViewController: UIViewController {
     private func callOneWeatherAPI(lat: String, long: String,cityName: String){
         let weatherDetailsViewModel = WeatherDetailsViewModel()
         weatherDetailsViewModel.didReceiveOneWeatherAPISuccess = { [weak self](oneWeatherResponse) in
+            DispatchQueue.main.async {
+                self?.loaderContainerView.isHidden = true
+                self?.activityIndicator.stopAnimating()
+            }
+            
             self?.currentCityData = oneWeatherResponse
             if let city = self?.currentCityData{
                 let cityData = City(context: DataBaseHelper.context)
@@ -63,6 +70,8 @@ class CitiesViewController: UIViewController {
             print(error,"API Failed")
         }
         
+        self.loaderContainerView.isHidden = false
+        self.activityIndicator.startAnimating()
         weatherDetailsViewModel.invokeOneWeatherAPIWith(lat: lat, long: long)
     }
     

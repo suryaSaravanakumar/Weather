@@ -59,15 +59,38 @@
                                             <constraint firstItem="MD7-Bc-NI5" firstAttribute="leading" secondItem="Sxc-nE-iOD" secondAttribute="leading" id="skC-Yr-biJ"/>
                                         </constraints>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsC-MZ-WHF">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <subviews>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="jGX-gq-O1d">
+                                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                                                <color key="tintColor" red="0.25707757469999998" green="0.54035979509999998" blue="0.42433685059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="cif-99-brd"/>
+                                                    <constraint firstAttribute="width" constant="100" id="gZY-13-nq5"/>
+                                                </constraints>
+                                                <color key="color" red="0.25707757469999998" green="0.54035979509999998" blue="0.42433685059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="jGX-gq-O1d" firstAttribute="centerX" secondItem="qsC-MZ-WHF" secondAttribute="centerX" id="Zce-eZ-sU9"/>
+                                            <constraint firstItem="jGX-gq-O1d" firstAttribute="centerY" secondItem="qsC-MZ-WHF" secondAttribute="centerY" id="okO-oA-18Q"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="fOE-HZ-SVM" firstAttribute="top" secondItem="lqH-4i-EqO" secondAttribute="bottom" constant="20" id="8LB-3J-gQn"/>
+                                    <constraint firstItem="qsC-MZ-WHF" firstAttribute="leading" secondItem="J3P-Ne-gt1" secondAttribute="leading" id="C6d-LG-X9T"/>
+                                    <constraint firstAttribute="bottom" secondItem="qsC-MZ-WHF" secondAttribute="bottom" id="Dle-Jo-ZSd"/>
                                     <constraint firstAttribute="trailing" secondItem="fOE-HZ-SVM" secondAttribute="trailing" id="GWA-rQ-Hb5"/>
                                     <constraint firstAttribute="bottom" secondItem="Sxc-nE-iOD" secondAttribute="bottom" constant="40" id="Mvz-Rp-L2m"/>
                                     <constraint firstItem="lqH-4i-EqO" firstAttribute="leading" secondItem="J3P-Ne-gt1" secondAttribute="leading" constant="25" id="Sat-AH-TcQ"/>
                                     <constraint firstItem="fOE-HZ-SVM" firstAttribute="leading" secondItem="J3P-Ne-gt1" secondAttribute="leading" constant="1" id="aqX-A0-uF6"/>
                                     <constraint firstAttribute="bottom" secondItem="fOE-HZ-SVM" secondAttribute="bottom" id="idD-nM-EJ7"/>
+                                    <constraint firstAttribute="trailing" secondItem="qsC-MZ-WHF" secondAttribute="trailing" id="j9t-ke-D3w"/>
+                                    <constraint firstItem="qsC-MZ-WHF" firstAttribute="top" secondItem="J3P-Ne-gt1" secondAttribute="top" id="pvN-Uo-idk"/>
                                     <constraint firstItem="lqH-4i-EqO" firstAttribute="top" secondItem="J3P-Ne-gt1" secondAttribute="top" constant="50" id="sO4-eB-qsb"/>
                                     <constraint firstAttribute="trailing" secondItem="Sxc-nE-iOD" secondAttribute="trailing" constant="25" id="spb-NY-4CE"/>
                                 </constraints>
@@ -83,6 +106,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="jGX-gq-O1d" id="uzH-vs-s6c"/>
+                        <outlet property="loaderContainerView" destination="qsC-MZ-WHF" id="sv4-si-KLN"/>
                         <outlet property="tableView" destination="fOE-HZ-SVM" id="s3k-ng-c29"/>
                     </connections>
                 </viewController>

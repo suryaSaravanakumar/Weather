@@ -12,6 +12,8 @@ class WeatherDetailsViewController: UIViewController {
     //MARK: - IBOulet Declaration
     @IBOutlet weak var weatherTableView: UITableView!
     @IBOutlet weak var addCityBtn: UIButton!
+    @IBOutlet weak var loaderContainerView: UIView!
+    @IBOutlet weak var activityIndicatior: UIActivityIndicatorView!
     
     //MARK: - Property Declaration
     var todayWeather: Current?
@@ -72,7 +74,7 @@ class WeatherDetailsViewController: UIViewController {
     
     private func callOneWeatherAPI(lat: String,long: String){
         
-        viewModel.didReceiveOneWeatherAPISuccess = { [weak self](oneWeatherResponse) in
+        viewModel.didReceiveOneWeatherAPISuccess = { [weak self] (oneWeatherResponse) in
             self?.todayWeather = oneWeatherResponse.current
             self?.hourlyWeather = oneWeatherResponse.hourly
             self?.dailyWeather = oneWeatherResponse.daily
@@ -95,15 +97,26 @@ class WeatherDetailsViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
+                self?.weatherTableView.isHidden = false
+                self?.loaderContainerView.isHidden = true
+                self?.activityIndicatior.stopAnimating()
                 self?.weatherTableView.reloadData()
             }
         }
-        viewModel.didReceiveOneWeatherAPIFailure = { (error,statusCode) in
+        
+        viewModel.didReceiveOneWeatherAPIFailure = { [weak self] (error,statusCode) in
+            DispatchQueue.main.async {
+            self?.loaderContainerView.isHidden = true
+            self?.activityIndicatior.stopAnimating()
+            }
             print(error,"API Failed")
         }
         
+        self.loaderContainerView.isHidden = false
+        self.activityIndicatior.startAnimating()
+        self.weatherTableView.isHidden = true
         viewModel.invokeOneWeatherAPIWith(lat: lat, long: long)
-        //"11.666839898921234", long: "78.15546069028629")
+        //"11.666839898921234", "78.15546069028629"
     }
     
     //MARK: - IBAction Methods

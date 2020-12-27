@@ -88,15 +88,38 @@
                                             <constraint firstItem="IiF-yS-vpN" firstAttribute="top" secondItem="Vy0-zU-Zxt" secondAttribute="top" id="zfz-uM-eBn"/>
                                         </constraints>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4z-Fc-0Tn">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <subviews>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="mlB-ph-aFI">
+                                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                                                <color key="tintColor" red="0.25707757469999998" green="0.54035979509999998" blue="0.42433685059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="EV0-WC-uaK"/>
+                                                    <constraint firstAttribute="width" constant="100" id="OYN-rd-nTa"/>
+                                                </constraints>
+                                                <color key="color" red="0.25707757469999998" green="0.54035979509999998" blue="0.42433685059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="mlB-ph-aFI" firstAttribute="centerY" secondItem="c4z-Fc-0Tn" secondAttribute="centerY" id="ZhC-Z4-MwC"/>
+                                            <constraint firstItem="mlB-ph-aFI" firstAttribute="centerX" secondItem="c4z-Fc-0Tn" secondAttribute="centerX" id="li2-pE-Veh"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="uWJ-0X-2yJ" firstAttribute="top" secondItem="CKn-9x-Zd8" secondAttribute="top" id="3Dw-NB-9zl"/>
+                                    <constraint firstItem="c4z-Fc-0Tn" firstAttribute="top" secondItem="CKn-9x-Zd8" secondAttribute="top" id="F5e-7w-Ejt"/>
                                     <constraint firstAttribute="trailing" secondItem="hZ3-Y6-z8M" secondAttribute="trailing" id="Ikf-Dl-jHz"/>
                                     <constraint firstItem="hZ3-Y6-z8M" firstAttribute="top" secondItem="CKn-9x-Zd8" secondAttribute="top" id="QNi-dY-dUa"/>
+                                    <constraint firstAttribute="trailing" secondItem="c4z-Fc-0Tn" secondAttribute="trailing" id="Rab-hW-nBt"/>
+                                    <constraint firstAttribute="bottom" secondItem="c4z-Fc-0Tn" secondAttribute="bottom" id="Szz-Sa-QMR"/>
                                     <constraint firstAttribute="trailing" secondItem="Vy0-zU-Zxt" secondAttribute="trailing" id="Vh8-Hv-bI3"/>
                                     <constraint firstItem="lmG-GP-6gt" firstAttribute="leading" secondItem="CKn-9x-Zd8" secondAttribute="leading" id="WEl-vQ-0FT"/>
                                     <constraint firstItem="Vy0-zU-Zxt" firstAttribute="top" secondItem="hZ3-Y6-z8M" secondAttribute="bottom" id="dGz-CD-0Cv"/>
+                                    <constraint firstItem="c4z-Fc-0Tn" firstAttribute="leading" secondItem="CKn-9x-Zd8" secondAttribute="leading" id="fLO-6Z-fok"/>
                                     <constraint firstItem="Vy0-zU-Zxt" firstAttribute="leading" secondItem="CKn-9x-Zd8" secondAttribute="leading" id="gsI-9B-ymC"/>
                                     <constraint firstAttribute="bottom" secondItem="uWJ-0X-2yJ" secondAttribute="bottom" id="lEE-dU-vEz"/>
                                     <constraint firstItem="uWJ-0X-2yJ" firstAttribute="leading" secondItem="CKn-9x-Zd8" secondAttribute="leading" id="pkZ-iV-Fc7"/>
@@ -118,7 +141,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatior" destination="mlB-ph-aFI" id="OvN-kC-KgI"/>
                         <outlet property="addCityBtn" destination="IGm-4c-O9P" id="hLX-zh-QRO"/>
+                        <outlet property="loaderContainerView" destination="c4z-Fc-0Tn" id="u5J-Md-Mqd"/>
                         <outlet property="weatherTableView" destination="hZ3-Y6-z8M" id="Fpi-Wd-m3S"/>
                     </connections>
                 </viewController>
