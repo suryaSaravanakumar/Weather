@@ -27,7 +27,6 @@ class NetwokHelper{
                                        failureBlock:@escaping (Error) ->()){
         guard  let url = URL(string: endPoint) else { return  }
         
-        //FIXME: - Handle No Internet case
         let task = session.dataTask(with: url, completionHandler: { data, response, error in
             
             if error != nil {

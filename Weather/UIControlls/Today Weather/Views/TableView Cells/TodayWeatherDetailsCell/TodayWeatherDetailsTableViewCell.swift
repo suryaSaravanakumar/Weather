@@ -32,6 +32,8 @@ class TodayWeatherDetailsTableViewCell: UITableViewCell {
         currentCityLbl.text = cityName
         temparatureLbl.text = "\(weather.temp ?? 0)° C"
         weatherTypeLbl.text = "\(weather.weather?[0].main?.capitalized ?? "")"
+        weatherImage.image = Helper.weatherImageURL(weatherType: weather.weather?[0].main?.capitalized ?? "")
+       
     }
     
 }

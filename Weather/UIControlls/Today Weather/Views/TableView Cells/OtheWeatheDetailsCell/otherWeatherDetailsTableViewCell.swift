@@ -42,6 +42,8 @@ class otherWeatherDetailsTableViewCell: UITableViewCell {
         
         let visibilityInKM = weather.visibility ?? 0 / 1000
         visibilityLbl.text = "\(visibilityInKM) Km"
+        
+//        weatherImage.image = Helper.weatherImageURL(weatherType: weather.weather?[0].main?.capitalized ?? "")
     }
 
     

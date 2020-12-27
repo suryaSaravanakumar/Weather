@@ -13,6 +13,7 @@ class WeatherDetailsViewController: UIViewController {
     @IBOutlet weak var weatherTableView: UITableView!
     @IBOutlet weak var addCityBtn: UIButton!
     @IBOutlet weak var loaderContainerView: UIView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var activityIndicatior: UIActivityIndicatorView!
     
     //MARK: - Property Declaration
@@ -51,6 +52,19 @@ class WeatherDetailsViewController: UIViewController {
         weatherTableView.register(TodayWeatherDetailsTableViewCell.nib(), forCellReuseIdentifier: TodayWeatherDetailsTableViewCell.cellIdentifier)
         weatherTableView.register(ForecastCollectionHolderTableViewCell.nib(), forCellReuseIdentifier: ForecastCollectionHolderTableViewCell.cellIdentifier)
         weatherTableView.register(otherWeatherDetailsTableViewCell.nib(), forCellReuseIdentifier: otherWeatherDetailsTableViewCell.cellIdentifier)
+    }
+    
+    private func updateBGImage(weatherType: String){
+        switch weatherType {
+        case WeatherCondition.snow.rawValue.capitalized,WeatherCondition.mist.rawValue.capitalized:
+            self.backgroundImageView.image = #imageLiteral(resourceName: "Snow")
+        case WeatherCondition.clouds.rawValue.capitalized:
+            self.backgroundImageView.image = #imageLiteral(resourceName: "Clear")
+        case WeatherCondition.clear.rawValue.capitalized:
+            self.backgroundImageView.image = #imageLiteral(resourceName: "Cloud")
+        default:
+            self.backgroundImageView.image = #imageLiteral(resourceName: "Sunny")
+        }
     }
     
     private func loadData(){
@@ -97,6 +111,7 @@ class WeatherDetailsViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
+                self?.updateBGImage(weatherType: oneWeatherResponse.current?.weather?[0].main ?? "")
                 self?.weatherTableView.isHidden = false
                 self?.loaderContainerView.isHidden = true
                 self?.activityIndicatior.stopAnimating()

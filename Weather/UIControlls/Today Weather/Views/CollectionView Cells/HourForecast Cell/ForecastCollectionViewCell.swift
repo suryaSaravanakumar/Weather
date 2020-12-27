@@ -34,6 +34,7 @@ class ForecastCollectionViewCell: UICollectionViewCell {
         timeLbl.text = time
         weatherTypeLbl.text = "\(weather.weather?[0].main?.capitalized ?? "")"
         tempLbl.text = "\(weather.temp ?? 0)° C"
+        weatherStatusImage.image = Helper.weatherImageURL(weatherType: weather.weather?[0].main?.capitalized ?? "")
     }
 
 }

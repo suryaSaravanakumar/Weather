@@ -143,6 +143,7 @@
                     <connections>
                         <outlet property="activityIndicatior" destination="mlB-ph-aFI" id="OvN-kC-KgI"/>
                         <outlet property="addCityBtn" destination="IGm-4c-O9P" id="hLX-zh-QRO"/>
+                        <outlet property="backgroundImageView" destination="uWJ-0X-2yJ" id="rRl-Cr-x76"/>
                         <outlet property="loaderContainerView" destination="c4z-Fc-0Tn" id="u5J-Md-Mqd"/>
                         <outlet property="weatherTableView" destination="hZ3-Y6-z8M" id="Fpi-Wd-m3S"/>
                     </connections>

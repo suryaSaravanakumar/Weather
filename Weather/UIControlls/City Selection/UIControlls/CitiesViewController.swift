@@ -67,6 +67,10 @@ class CitiesViewController: UIViewController {
         }
         
         weatherDetailsViewModel.didReceiveOneWeatherAPIFailure = { (error,statusCode) in
+            DispatchQueue.main.async {
+                self.loaderContainerView.isHidden = true
+                self.activityIndicator.stopAnimating()
+            }
             print(error,"API Failed")
         }
         
@@ -96,10 +100,10 @@ extension CitiesViewController: UITableViewDelegate,UITableViewDataSource{
         guard let cell =  tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.cellIdentifier, for: indexPath) as? CityTableViewCell else {
             return UITableViewCell()
         }
-        
         cell.weatherTypeLbl.text = selectedCities[indexPath.row].cityWeather
         cell.cityLbl.text = selectedCities[indexPath.row].cityName
         cell.tempLbl.text = "\(selectedCities[indexPath.row].cityTemp ?? "")° C"
+        cell.weatherImage.image = Helper.weatherImageURL(weatherType: selectedCities[indexPath.row].cityWeather ?? "")
         return cell
     }
     
