@@ -8,7 +8,7 @@
 import UIKit
 
 class DailyForecastTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var dayLbl: UILabel!
     @IBOutlet weak var weatherTypeLbl: UILabel!
     @IBOutlet weak var weatherImage: UIImageView!
@@ -44,5 +44,6 @@ class DailyForecastTableViewCell: UITableViewCell {
         maxTempLbl.text = "\(weather.temp?.max ?? 0)° C"
         dayTempLbl.text = "\(weather.temp?.day ?? 0)° C"
         nightTempLbl.text = "\(weather.temp?.night ?? 0)° C"
+        weatherImage.image = Helper.weatherImageURL(weatherType: weather.weather?[0].main?.capitalized ?? "")
     }
 }

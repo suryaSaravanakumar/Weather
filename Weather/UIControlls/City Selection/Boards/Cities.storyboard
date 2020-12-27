@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -136,13 +137,33 @@
                                         <rect key="frame" x="1" y="144" width="413" height="752"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="PT2-ao-ewm">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ig2-gV-f3C">
+                                        <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                        <subviews>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="h0u-md-4LP">
+                                                <rect key="frame" x="157" y="326" width="100" height="100"/>
+                                                <color key="tintColor" red="0.25707757469999998" green="0.54035979509999998" blue="0.42433685059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="ZDu-N0-JMX"/>
+                                                    <constraint firstAttribute="width" constant="100" id="pUq-j1-s1u"/>
+                                                </constraints>
+                                                <color key="color" red="0.25707757469999998" green="0.54035979509999998" blue="0.42433685059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="h0u-md-4LP" firstAttribute="centerY" secondItem="ig2-gV-f3C" secondAttribute="centerY" id="35A-NY-wIT"/>
+                                            <constraint firstItem="h0u-md-4LP" firstAttribute="centerX" secondItem="ig2-gV-f3C" secondAttribute="centerX" id="GJ5-G4-gYg"/>
+                                        </constraints>
+                                    </view>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by city name" translatesAutoresizingMaskIntoConstraints="NO" id="PT2-ao-ewm">
                                         <rect key="frame" x="0.0" y="94" width="414" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="5Q6-fi-LaG"/>
                                         </constraints>
                                         <color key="tintColor" red="0.25707757469999998" green="0.54035979509999998" blue="0.42433685059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                 </subviews>
@@ -150,11 +171,15 @@
                                 <constraints>
                                     <constraint firstItem="PT2-ao-ewm" firstAttribute="leading" secondItem="gIY-JZ-CeU" secondAttribute="leading" id="4mZ-6V-QrL"/>
                                     <constraint firstAttribute="trailing" secondItem="PT2-ao-ewm" secondAttribute="trailing" id="5j8-gA-811"/>
+                                    <constraint firstItem="ig2-gV-f3C" firstAttribute="leading" secondItem="gIY-JZ-CeU" secondAttribute="leading" id="9fT-fX-4dl"/>
+                                    <constraint firstAttribute="bottom" secondItem="ig2-gV-f3C" secondAttribute="bottom" id="CJ1-T2-eAp"/>
+                                    <constraint firstItem="ig2-gV-f3C" firstAttribute="top" secondItem="PT2-ao-ewm" secondAttribute="bottom" id="Ee4-sQ-po7"/>
                                     <constraint firstItem="PT2-ao-ewm" firstAttribute="top" secondItem="ijC-A2-nSe" secondAttribute="bottom" constant="20" id="Eu1-Qx-rGV"/>
                                     <constraint firstItem="ijC-A2-nSe" firstAttribute="top" secondItem="gIY-JZ-CeU" secondAttribute="top" constant="50" id="Mk9-Op-kUK"/>
                                     <constraint firstAttribute="bottom" secondItem="mgz-F6-6Ia" secondAttribute="bottom" id="V3T-ks-fFP"/>
                                     <constraint firstItem="mgz-F6-6Ia" firstAttribute="leading" secondItem="gIY-JZ-CeU" secondAttribute="leading" constant="1" id="Vze-Ee-w4E"/>
                                     <constraint firstItem="mgz-F6-6Ia" firstAttribute="top" secondItem="PT2-ao-ewm" secondAttribute="bottom" id="WhB-aH-Mb3"/>
+                                    <constraint firstAttribute="trailing" secondItem="ig2-gV-f3C" secondAttribute="trailing" id="ZBS-48-fYi"/>
                                     <constraint firstAttribute="trailing" secondItem="mgz-F6-6Ia" secondAttribute="trailing" id="Zdd-oK-HHk"/>
                                     <constraint firstItem="ijC-A2-nSe" firstAttribute="leading" secondItem="gIY-JZ-CeU" secondAttribute="leading" constant="25" id="wX8-RD-TAO"/>
                                 </constraints>
@@ -170,6 +195,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="h0u-md-4LP" id="cJg-kF-pT6"/>
+                        <outlet property="loaderContainerView" destination="ig2-gV-f3C" id="a2X-5s-NCD"/>
                         <outlet property="searchBar" destination="PT2-ao-ewm" id="pS4-ty-zVf"/>
                         <outlet property="tableView" destination="mgz-F6-6Ia" id="n8t-he-2hz"/>
                     </connections>

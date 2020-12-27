@@ -12,6 +12,8 @@ class CitySearchViewController: UIViewController {
     // MARK: - IBOutlet Declaration
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var loaderContainerView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Property Declaration
     var citySearchArr: [String] = []
@@ -45,6 +47,7 @@ class CitySearchViewController: UIViewController {
     
     private func searchBarSetup(){
         searchBar.delegate = self
+        searchBar.searchTextField.textColor = .white
         searchBar.setShowsCancelButton(true, animated: true)
         searchBar.showsCancelButton = true
     }
@@ -60,10 +63,10 @@ class CitySearchViewController: UIViewController {
                     }else{
                         self?.citySearchArr.append("\(city.name ?? ""),\(city.country ?? "")")
                     }
-                   
                 }
-                
                 DispatchQueue.main.async {
+                    self?.loaderContainerView.isHidden = true
+                    self?.activityIndicator.stopAnimating()
                     self?.tableView.reloadData()
                 }
             }
@@ -71,9 +74,15 @@ class CitySearchViewController: UIViewController {
         }
         
         viewModel.didReceiveCitySearchAPIFailure = { (error,statusCode) in
+            DispatchQueue.main.async {
+                self.loaderContainerView.isHidden = true
+                self.activityIndicator.stopAnimating()
+            }
             print("API Fail")
         }
         
+        self.loaderContainerView.isHidden = false
+        self.activityIndicator.startAnimating()
         viewModel.invokeOneWeatherAPIWith(with: name)
     }
     
@@ -103,8 +112,27 @@ extension CitySearchViewController: UITableViewDelegate,UITableViewDataSource{
             if let lattitude = selectedCity.lat,
                let Longitude = selectedCity.lon,
                let name = selectedCity.name{
-                citySelectDelegate.didSelectCity(cityName: name,lat: String(lattitude), long: String(Longitude))
-                self.dismiss(animated: true, completion: nil)
+                //Check DB to avoid Duplication
+                let city = DataBaseHelper.loadCityDataFromDB()
+                var isDuplicate = false
+                city.forEach { (currentCity) in
+                    if currentCity.cityName == selectedCity.name{
+                        isDuplicate = true
+                    }
+                }
+                if !(isDuplicate){
+                    citySelectDelegate.didSelectCity(cityName: name,lat: String(lattitude), long: String(Longitude))
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    let alertController = UIAlertController(title: "City Already Added", message: "", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                
+               
             }
         }
     }

@@ -25,7 +25,7 @@
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hZ3-Y6-z8M">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
-                                        <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmG-GP-6gt">
                                         <rect key="frame" x="0.0" y="826" width="414" height="70"/>
@@ -55,8 +55,8 @@
                                         <rect key="frame" x="0.0" y="786" width="414" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check Weather For Next 7 Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMM-GS-aeY">
-                                                <rect key="frame" x="15" y="9.5" width="242" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="15" y="9.5" width="255.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -78,6 +78,7 @@
                                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="0.50141867360761083" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="BYc-aT-O7L" firstAttribute="centerY" secondItem="uMM-GS-aeY" secondAttribute="centerY" id="3IT-dA-tpc"/>
+                                            <constraint firstItem="BYc-aT-O7L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uMM-GS-aeY" secondAttribute="trailing" constant="8" symbolic="YES" id="4jU-bN-R7k"/>
                                             <constraint firstItem="uMM-GS-aeY" firstAttribute="centerY" secondItem="Vy0-zU-Zxt" secondAttribute="centerY" id="887-oG-lwr"/>
                                             <constraint firstItem="uMM-GS-aeY" firstAttribute="leading" secondItem="Vy0-zU-Zxt" secondAttribute="leading" constant="15" id="DvE-OP-lmb"/>
                                             <constraint firstAttribute="height" constant="40" id="P8p-cs-5Vl"/>

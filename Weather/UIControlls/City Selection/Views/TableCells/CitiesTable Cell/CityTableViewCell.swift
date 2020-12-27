@@ -26,11 +26,4 @@ class CityTableViewCell: UITableViewCell {
         super.awakeFromNib()
         containerView.addAddCornerRadius()
     }
-    
-//    func updateCell(withCityWeather weather: Current){
-//
-//        weatherTypeLbl.text = "\(weather.weather?[0].main?.capitalized ?? "")"
-//        cityLbl.text = "sunriseTime"
-//        cityLbl.text = "\(weather.temp ?? 0)° C"
-//    }
 }
