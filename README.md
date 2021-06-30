@@ -15,7 +15,6 @@ To give data presisitance, i have used coredata and disk. Used coredata to store
 # Communication Patteren 
 Used Protocol and delgate communication pattern to comunicate with each view controllers to update changes.
 
-
 # Supported Version 
 iOS 13.0 or greater
 
